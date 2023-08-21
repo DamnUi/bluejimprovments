@@ -2,7 +2,7 @@
 import pyautogui
 import time
 import keyboard
-import sys
+import sys, os
 import pygetwindow as gw
 
 
@@ -14,9 +14,17 @@ keyboard.add_hotkey(hotkey, lambda: compile_c_and_leave())
 
 
 
-lines = r'D:\.Python\StandAlone\.BLUEJAUTOSHIT\linesproj.png'
-succesful_compile = r'D:\.Python\StandAlone\.BLUEJAUTOSHIT\scompile.png'
-bird_img = r'D:\.Python\StandAlone\.BLUEJAUTOSHIT\bird.png'
+lines = r'linesproj.png'
+succesful_compile = r'scompile.png'
+bird_img = r'bird.png'
+#if files arent found in directory show an error 
+try:
+    os.path.isfile(lines)
+    os.path.isfile(succesful_compile)
+    os.path.isfile(bird_img)
+except:
+    print("Error: Files not found, Try checking your install directory")
+
 
 
 def find_bird():
